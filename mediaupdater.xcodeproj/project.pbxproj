@@ -3,28 +3,35 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		2E7D3EBC25B8CBBC00D6485B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7D3EBB25B8CBBC00D6485B /* main.swift */; };
+		2E7D3EC625B8D04A00D6485B /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 2E7D3EC525B8D04A00D6485B /* ArgumentParser */; };
+		2E7D3EC925B8D12300D6485B /* mediaupdater in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2E7D3EB825B8CBBC00D6485B /* mediaupdater */; };
+		2E7D3ECC25B8D72900D6485B /* MediaUpdater+Doc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7D3ECB25B8D72900D6485B /* MediaUpdater+Doc.swift */; };
+		2E7D3ECF25B8DB5500D6485B /* MediaUpdater+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7D3ECE25B8DB5500D6485B /* MediaUpdater+Utility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		2E7D3EB625B8CBBC00D6485B /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
+			buildActionMask = 12;
+			dstPath = /usr/local/bin;
 			dstSubfolderSpec = 0;
 			files = (
+				2E7D3EC925B8D12300D6485B /* mediaupdater in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2E7D3EB825B8CBBC00D6485B /* mediaupdater */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = mediaupdater; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E7D3EBB25B8CBBC00D6485B /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		2E7D3ECB25B8D72900D6485B /* MediaUpdater+Doc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MediaUpdater+Doc.swift"; sourceTree = "<group>"; };
+		2E7D3ECE25B8DB5500D6485B /* MediaUpdater+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MediaUpdater+Utility.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E7D3EC625B8D04A00D6485B /* ArgumentParser in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +66,8 @@
 			isa = PBXGroup;
 			children = (
 				2E7D3EBB25B8CBBC00D6485B /* main.swift */,
+				2E7D3ECB25B8D72900D6485B /* MediaUpdater+Doc.swift */,
+				2E7D3ECE25B8DB5500D6485B /* MediaUpdater+Utility.swift */,
 			);
 			path = mediaupdater;
 			sourceTree = "<group>";
@@ -78,6 +88,9 @@
 			dependencies = (
 			);
 			name = mediaupdater;
+			packageProductDependencies = (
+				2E7D3EC525B8D04A00D6485B /* ArgumentParser */,
+			);
 			productName = mediaupdater;
 			productReference = 2E7D3EB825B8CBBC00D6485B /* mediaupdater */;
 			productType = "com.apple.product-type.tool";
@@ -105,6 +118,9 @@
 				Base,
 			);
 			mainGroup = 2E7D3EAF25B8CBBC00D6485B;
+			packageReferences = (
+				2E7D3EC425B8D04A00D6485B /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
+			);
 			productRefGroup = 2E7D3EB925B8CBBC00D6485B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -120,6 +136,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E7D3EBC25B8CBBC00D6485B /* main.swift in Sources */,
+				2E7D3ECC25B8D72900D6485B /* MediaUpdater+Doc.swift in Sources */,
+				2E7D3ECF25B8DB5500D6485B /* MediaUpdater+Utility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +303,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2E7D3EC425B8D04A00D6485B /* XCRemoteSwiftPackageReference "swift-argument-parser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-argument-parser";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2E7D3EC525B8D04A00D6485B /* ArgumentParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2E7D3EC425B8D04A00D6485B /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
+			productName = ArgumentParser;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2E7D3EB025B8CBBC00D6485B /* Project object */;
 }
