@@ -1,5 +1,5 @@
 # mediaupdater
-Tools for video files.
+CLI tools for video files.
 
 Currently provides for renaming of a video file.
 
