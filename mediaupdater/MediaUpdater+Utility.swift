@@ -7,6 +7,12 @@
 
 import Foundation
 
+extension String  {
+    var isNumber: Bool {
+        return !isEmpty && rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil
+    }
+}
+
 extension MediaUpdater {
     static func getShowInfo(from filename: String) -> (String?, String?, String?) {
         var showName: String?
@@ -35,8 +41,22 @@ extension MediaUpdater {
     }
 
     static func formatShowTitle(_ title: String) -> String {
-        var updatedTitle = (title.replacingOccurrences(of: ".", with: " ")).capitalized.trimmingCharacters(in: .whitespacesAndNewlines)
-        return (updatedTitle.replacingOccurrences(of: "_", with: " ")).capitalized.trimmingCharacters(in: .whitespacesAndNewlines)
+        //var updatedTitle = (title.replacingOccurrences(of: ".", with: " ")).capitalized.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        let updatedTitle = title.replacingOccurrences(of: ".", with: " ")
+            .replacingOccurrences(of: "_", with: " ")
+            .capitalized
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        print("Updated Title = \(updatedTitle)")
+        // Check last segment for a year date. If exists, remove
+        var titleComponents = updatedTitle.components(separatedBy: " ")
+        if (titleComponents[titleComponents.count - 1].isNumber) {
+            titleComponents.removeLast()
+        }
+        
+        print("Sending back = \(titleComponents.joined(separator: " "))")
+        return (titleComponents.joined(separator: " "))
     }
     
     static func getFilePathComponents(from filename: String) -> [String: String] {

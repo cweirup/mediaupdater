@@ -12,6 +12,9 @@
 		2E7D3EC925B8D12300D6485B /* mediaupdater in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2E7D3EB825B8CBBC00D6485B /* mediaupdater */; };
 		2E7D3ECC25B8D72900D6485B /* MediaUpdater+Doc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7D3ECB25B8D72900D6485B /* MediaUpdater+Doc.swift */; };
 		2E7D3ECF25B8DB5500D6485B /* MediaUpdater+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7D3ECE25B8DB5500D6485B /* MediaUpdater+Utility.swift */; };
+		2E7D3ED225B9CCE600D6485B /* ShowInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7D3ED125B9CCE600D6485B /* ShowInfo.swift */; };
+		2E7D3ED525B9CCFB00D6485B /* ShowResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7D3ED425B9CCFB00D6485B /* ShowResponse.swift */; };
+		2E7D3ED825BB47AF00D6485B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7D3ED725BB47AF00D6485B /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,6 +35,9 @@
 		2E7D3EBB25B8CBBC00D6485B /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		2E7D3ECB25B8D72900D6485B /* MediaUpdater+Doc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MediaUpdater+Doc.swift"; sourceTree = "<group>"; };
 		2E7D3ECE25B8DB5500D6485B /* MediaUpdater+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MediaUpdater+Utility.swift"; sourceTree = "<group>"; };
+		2E7D3ED125B9CCE600D6485B /* ShowInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowInfo.swift; sourceTree = "<group>"; };
+		2E7D3ED425B9CCFB00D6485B /* ShowResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowResponse.swift; sourceTree = "<group>"; };
+		2E7D3ED725BB47AF00D6485B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +74,9 @@
 				2E7D3EBB25B8CBBC00D6485B /* main.swift */,
 				2E7D3ECB25B8D72900D6485B /* MediaUpdater+Doc.swift */,
 				2E7D3ECE25B8DB5500D6485B /* MediaUpdater+Utility.swift */,
+				2E7D3ED125B9CCE600D6485B /* ShowInfo.swift */,
+				2E7D3ED425B9CCFB00D6485B /* ShowResponse.swift */,
+				2E7D3ED725BB47AF00D6485B /* NetworkManager.swift */,
 			);
 			path = mediaupdater;
 			sourceTree = "<group>";
@@ -135,8 +144,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E7D3ED825BB47AF00D6485B /* NetworkManager.swift in Sources */,
 				2E7D3EBC25B8CBBC00D6485B /* main.swift in Sources */,
 				2E7D3ECC25B8D72900D6485B /* MediaUpdater+Doc.swift in Sources */,
+				2E7D3ED525B9CCFB00D6485B /* ShowResponse.swift in Sources */,
+				2E7D3ED225B9CCE600D6485B /* ShowInfo.swift in Sources */,
 				2E7D3ECF25B8DB5500D6485B /* MediaUpdater+Utility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
