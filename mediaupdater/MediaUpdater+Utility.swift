@@ -48,14 +48,12 @@ extension MediaUpdater {
             .capitalized
             .trimmingCharacters(in: .whitespacesAndNewlines)
         
-        print("Updated Title = \(updatedTitle)")
         // Check last segment for a year date. If exists, remove
         var titleComponents = updatedTitle.components(separatedBy: " ")
         if (titleComponents[titleComponents.count - 1].isNumber) {
             titleComponents.removeLast()
         }
         
-        print("Sending back = \(titleComponents.joined(separator: " "))")
         return (titleComponents.joined(separator: " "))
     }
     
@@ -82,4 +80,51 @@ extension MediaUpdater {
         
         return filePathComponents
     }
+    
+    static func getNormalizedName(for name: String) -> String {
+        // Need to pull this into separate function, then apply semaphore
+        // See: https://stackoverflow.com/questions/31944011/how-to-prevent-a-command-line-tool-from-exiting-before-asynchronous-operation-co/31944445
+
+        let urlString = "https://api.tvmaze.com/search/shows"
+        
+        var newFileName = name
+        
+        var components = URLComponents(string: urlString)!
+        components.queryItems = [URLQueryItem(name: "q", value: name)]
+        
+        // This fixed my semaphore issue
+        // https://stackoverflow.com/questions/31944011/how-to-prevent-a-command-line-tool-from-exiting-before-asynchronous-operation-co/31944445
+        // Also see this for spliting up the code
+        // https://github.com/stupergenius/Bens-Log/blob/master/blog-projects/swift-command-line/btc.swift
+        let semaphore = DispatchSemaphore(value: 0)
+        
+        let task = URLSession.shared.dataTask(with: components.url!) { data, response, error in
+            
+            if let _data = data {
+
+                if let showResponse = try? JSONDecoder().decode([ShowResponse].self, from: _data) {
+                //print("In with the data response.")
+                //let showResponse = try JSONDecoder().decode([ShowResponse].self, from: _data)
+                //let fullPath = "\(fileInfo["currentDir"]!)/\(fileInfo["filename"]!)"
+                
+                    newFileName = showResponse[0].show.name
+                    
+                }
+            }
+            
+            semaphore.signal()
+        }
+        
+        task.resume()
+        
+        let _ = semaphore.wait(timeout: .distantFuture)
+        
+        return newFileName
+    }
+    
+//    static func saveFileWithNewName(dir: String, show: String, season: String, episode: String, fileExtension: String) {
+//        let fileManager = FileManager.default
+//        
+//        _ = try? fileManager.moveItem(atPath: fullPath, toPath: "\(dir)/\(show) s\(season)e\(episode).\(fileExtension)")
+//    }
 }
